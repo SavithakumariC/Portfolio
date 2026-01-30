@@ -1,0 +1,136 @@
+.projects-viewport {
+  background: #020617; /* Normal portfolio background */
+  padding: 100px 0;
+}
+
+/* THE NEON CARD */
+.project-neon-card {
+  position: relative;
+  background: #0f172a; /* Solid dark portfolio background */
+  border-radius: 40px; 
+  border: 1px solid rgba(56, 189, 248, 0.1);
+  overflow: hidden;
+  transition: all 0.5s ease;
+  z-index: 1;
+  animation: cardFloat 5s ease-in-out infinite;
+}
+
+@keyframes cardFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.project-neon-card:hover {
+  animation-play-state: paused;
+  transform: translateY(-5px);
+  border-color: #38bdf8;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* IMAGE WRAPPER */
+.project-img-wrapper {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+  margin: 15px;
+  border-radius: 30px;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* Zoom effect on hover - No blur */
+.project-neon-card:hover .project-img {
+  transform: scale(1.1);
+}
+
+/* TECH STACK IN BOTTOM LEFT CORNER */
+.tech-stack-corner {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  z-index: 10;
+}
+
+.tech-badge-outline {
+  background: rgba(2, 6, 23, 0.6); /* Semi-transparent to make text pop */
+  color: #ffffff; /* White font color */
+  border: 1px solid #38bdf8; /* Blue border */
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  backdrop-filter: blur(2px); /* Very slight to keep text readable */
+}
+
+/* CONTENT STYLES */
+.project-content { padding: 10px 35px 35px 35px; }
+
+.p-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700; 
+  color: white;
+  font-size: 1.5rem; 
+  margin-bottom: 10px;
+}
+
+.p-desc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #94a3b8; 
+  font-size: 0.95rem; 
+  line-height: 1.6;
+}
+
+/* BUTTONS */
+.p-actions { 
+  display: flex; 
+  gap: 15px; 
+  margin-top: 20px; 
+}
+
+.live-btn {
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  color: white; 
+  text-decoration: none; 
+  padding: 10px 22px; 
+  border-radius: 12px;
+  font-weight: 700; 
+  font-size: 0.85rem;
+  display: flex; 
+  align-items: center; 
+  transition: 0.3s;
+}
+
+.live-btn:hover { 
+  filter: brightness(1.2); 
+  transform: scale(1.05); 
+}
+
+.git-btn {
+  width: 45px; 
+  height: 45px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05); 
+  border-radius: 12px; 
+  color: white;
+  font-size: 1.2rem; 
+  transition: 0.3s; 
+  text-decoration: none;
+}
+
+.git-btn:hover { 
+  background: white; 
+  color: #020617; 
+  box-shadow: 0 0 15px white; 
+}

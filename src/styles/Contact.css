@@ -1,0 +1,130 @@
+/* CONTACT SECTION WRAPPER */
+.contact-viewport {
+  background: #020617;
+  padding: 100px 0;
+}
+
+.connect-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.contact-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #94a3b8;
+  line-height: 1.7;
+}
+
+/* SOCIAL ICONS (OPTIMIZED SIZE & VISIBILITY) */
+.social-icon-raw {
+  position: relative;
+  width: 45px; /* Reduced size */
+  height: 45px; /* Reduced size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-color);
+  font-size: 1.4rem; /* Balanced icon size */
+  text-decoration: none;
+  background: transparent;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+}
+
+/* Spinning Ring - Smooth Circle Border */
+.spinning-ring {
+  position: absolute;
+  inset: 0px;
+  border: 2px solid var(--brand-color);
+  border-radius: 50%;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  opacity: 0;
+  transition: 0.4s ease;
+  pointer-events: none;
+}
+
+/* HOVER EFFECT: Circle Up + Glow + White Icon Visibility */
+.social-icon-raw:hover {
+  color: #ffffff !important; /* Forces icon to be white for brand visibility */
+  background: var(--brand-color);
+  border-radius: 50%; /* Rounded border */
+  box-shadow: 0 0 20px var(--brand-color), 0 0 40px var(--brand-color);
+  transform: translateY(-5px);
+}
+
+.social-icon-raw:hover .spinning-ring {
+  opacity: 1;
+  inset: -6px;
+  animation: spinRing 1s linear infinite;
+}
+
+@keyframes spinRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* GLASS FORM CARD - Floating Effect */
+.glass-card-simple {
+  background: rgba(30, 41, 59, 0.3);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 35px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* INPUTS & PLACEHOLDERS */
+.simple-input-group input, 
+.simple-input-group textarea {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 16px 20px;
+  color: #fff;
+  outline: none;
+  transition: 0.4s ease;
+}
+
+.simple-input-group input::placeholder,
+.simple-input-group textarea::placeholder {
+  color: #64748b;
+  transition: 0.3s;
+}
+
+.simple-input-group input:hover::placeholder,
+.simple-input-group textarea:hover::placeholder {
+  color: #818cf8;
+}
+
+.simple-input-group input:focus::placeholder,
+.simple-input-group textarea:focus::placeholder {
+  color: #38bdf8;
+}
+
+.simple-input-group input:focus, 
+.simple-input-group textarea:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+}
+
+/* BUTTON */
+.theme-gradient-btn {
+  background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
+  border: none;
+  color: #fff;
+  padding: 16px;
+  border-radius: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.theme-gradient-btn:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4);
+}

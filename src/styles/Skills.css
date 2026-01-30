@@ -1,0 +1,170 @@
+/* Skills Section Background */
+.skills-viewport {
+  background: #020617;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Reusing the Ambient Glow from About.jsx */
+.skills-viewport::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.05), transparent 70%);
+  pointer-events: none;
+}
+
+/* Category Container Style - Updated to match About Glass Panel */
+.category-card {
+  background: rgba(30, 41, 59, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px; /* Matched to About.jsx */
+  padding: 40px 25px;
+  backdrop-filter: blur(12px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 1;
+  /* Added constant floating animation */
+  animation: skillFloat 6s ease-in-out infinite;
+}
+
+/* Staggered float for different cards */
+.col-lg-4:nth-child(2) .category-card { animation-delay: 1s; }
+.col-lg-4:nth-child(3) .category-card { animation-delay: 2s; }
+
+@keyframes skillFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* WHOLE CONTAINER HOVER: Radiant Glow Effect */
+.category-card:hover {
+  border-color: rgba(56, 189, 248, 0.4); /* Cyan glow border like About */
+  background: rgba(30, 41, 59, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
+              0 0 30px rgba(56, 189, 248, 0.15); /* Radiant Blue Aura */
+  transform: translateY(-15px) scale(1.02);
+  animation-play-state: paused; /* Stops floating when you interact */
+}
+
+/* MATCHING ABOUT.JSX FONT SIZES */
+.category-heading {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700; /* Matched to Category Label in About */
+  color: #fff;
+  font-size: 1.25rem; /* Matched to your About request */
+  letter-spacing: 1px;
+  position: relative;
+}
+
+/* Underline animation for category title */
+.category-heading::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  width: 30px;
+  height: 2px;
+  background: #38bdf8;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #38bdf8;
+}
+
+.category-card:hover .category-heading::after {
+  width: 60px;
+}
+
+/* Skills Layout Inside Card */
+.skills-grid-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+.skill-item-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70px;
+}
+
+/* --- ICON STYLES (NO CHANGES TO YOUR ANIMATIONS) --- */
+.icon-sphere {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr);
+  font-size: 1.5rem;
+  transition: 0.4s;
+  box-shadow: 0 0 10px rgba(var(--clr), 0.1);
+  z-index: 2;
+}
+
+.skill-text-label {
+  font-family: 'Plus Jakarta Sans', sans-serif; /* Matched to About description */
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-top: 10px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.skill-item-container:hover .icon-sphere {
+  background: var(--clr);
+  color: #fff !important;
+  transform: scale(1.1);
+  box-shadow: 0 0 25px var(--clr);
+}
+
+.skill-item-container:hover .skill-text-label {
+  color: #fff;
+}
+
+.spinning-ring {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 2px solid var(--clr);
+  border-radius: 50%;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.skill-item-container:hover .spinning-ring {
+  opacity: 1;
+  animation: spinRing 2s linear infinite;
+}
+
+@keyframes spinRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Main Title Style */
+.skills-main-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  color: #fff;
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.radiant-text {
+  background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

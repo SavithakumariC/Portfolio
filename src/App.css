@@ -1,0 +1,58 @@
+/* Import Poppins and Plus Jakarta Sans */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap');
+
+:root {
+  --bg-deep: #020617;
+  --accent-blue: #38bdf8;
+  --font-heading: 'Poppins', sans-serif;
+  --font-para: 'Plus Jakarta Sans', sans-serif;
+}
+a{
+  text-decoration: none;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-deep);
+  color: #f1f5f9;
+  font-family: var(--font-para); /* Body text font */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Headings use Poppins */
+h1, h2, h3, h4, h5, .navbar-brand, .nav-link, button {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.display-4 {
+  font-weight: 800;
+  letter-spacing: -1.5px;
+}
+
+/* Paragraphs & Descriptions use the cleaner font */
+p, .about-description, .contact-text, .job-duration, .skill-text-label {
+  font-family: var(--font-para);
+  font-weight: 400;
+  line-height: 1.7;
+  color: #94a3b8;
+}
+
+/* Radiant Text */
+.radiant-text, .name-gradient {
+  background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+/* Small Tag Styles */
+.mono-tag {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: var(--accent-blue);
+  text-transform: uppercase;
+}

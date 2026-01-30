@@ -1,0 +1,327 @@
+/* GENERAL LAYOUT (SYNCED WITH ABOUT) */
+.home-viewport {
+  background: #020617;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* BACKGROUND GLOWS */
+.constant-ambient-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.1), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.top-left { top: -10%; left: -10%; width: 500px; height: 500px; opacity: 0.5; }
+.bottom-right { bottom: -10%; right: -10%; width: 500px; height: 500px; opacity: 0.5; }
+
+/* TYPOGRAPHY (SYNCED WITH ABOUT) */
+.category-label {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.radiant-icon {
+  color: #38bdf8;
+  text-shadow: 0 0 10px #38bdf8;
+}
+
+.about-description {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #94a3b8;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.highlight-blue {
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.display-text {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  font-family: 'Poppins', sans-serif;
+}
+
+.job-duration {
+  color: #64748b;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.4rem;
+}
+
+/* BADGE STYLE */
+.badge-modern-small {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(30, 41, 59, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 4px 12px;
+  border-radius: 50px;
+  width: fit-content;
+}
+
+.timeline-dot-static {
+  width: 8px;
+  height: 8px;
+  background: #38bdf8;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #38bdf8;
+}
+
+.mono-text-small {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+  color: #94a3b8;
+}
+
+/* --- ADVANCED IMAGE SECTION --- */
+
+.profile-motion-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-glass-wrapper {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  padding: 12px;
+  background: rgba(30, 41, 59, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);
+}
+
+/* 24/7 Rotating Light Border */
+.rotating-neon-border {
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  padding: 2px;
+  background: conic-gradient(from 0deg, transparent, #38bdf8, #818cf8, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: rotateNeon 4s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes rotateNeon {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.profile-img-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.profile-img-circle {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+/* Hover States */
+.profile-glass-wrapper:hover {
+  transform: scale(1.05);
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 0 40px rgba(56, 189, 248, 0.3);
+}
+
+.profile-glass-wrapper:hover .rotating-neon-border {
+  opacity: 1;
+  animation-duration: 2s; /* Speed up on hover */
+}
+
+.profile-glass-wrapper:hover .profile-img-circle {
+  transform: scale(1.1);
+}
+
+/* Sweep Effect */
+.profile-hover-overlay {
+  position: absolute;
+  top: 0; left: -100%;
+  width: 50%; height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.15), transparent);
+  transform: skewX(-25deg);
+  transition: 0.8s;
+}
+
+.profile-glass-wrapper:hover .profile-hover-overlay {
+  left: 150%;
+}
+
+/* RESPONSIVE */
+@media (max-width: 991px) {
+  .profile-glass-wrapper { width: 240px; height: 240px; }
+  .display-text { font-size: 2.8rem; }
+}
+
+/* CONTAINER FOR THE IMAGE & GLOW */
+.profile-aura-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 320px;
+  height: 320px;
+  margin: auto;
+}
+
+/* THE BLURRED HALO (Replaces the border) */
+.profile-backdrop-filter {
+  position: absolute;
+  inset: 20px;
+  background: radial-gradient(circle, #38bdf8 0%, #818cf8 50%, transparent 100%);
+  filter: blur(40px);
+  opacity: 0.2; /* Soft glow when not hovered */
+  border-radius: 50%;
+  z-index: 1;
+  transition: all 0.6s ease;
+  animation: auraPulse 3s infinite alternate;
+}
+
+@keyframes auraPulse {
+  from { transform: scale(1); opacity: 0.2; }
+  to { transform: scale(1.15); opacity: 0.4; }
+}
+
+/* THE IMAGE FRAME */
+.profile-image-frame {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 2;
+  /* Glass effect on the image edge */
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.profile-img-main {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* GLOSSY SHINE ON HOVER */
+.glossy-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  opacity: 0;
+  transition: 0.5s;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 991px) {
+  .profile-aura-container { width: 260px; height: 260px; }
+  .profile-image-frame { width: 220px; height: 220px; }
+}
+
+
+
+/* --- UPDATED PROFILE CONTAINER HOVER (MATCHES PROJECT NEON CARD) --- */
+.profile-aura-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 320px;
+  height: 320px;
+  margin: auto;
+  transition: all 0.5s ease; /* Smooth transition like project cards */
+}
+
+/* On Hover: Lift and Neon Glow matches Project Card */
+.profile-aura-container:hover {
+  transform: translateY(-10px); /* Lift effect */
+}
+
+.profile-aura-container:hover .profile-image-frame {
+  border-color: #38bdf8; /* Neon blue border on hover */
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.4); /* Intense glow */
+}
+
+
+.theme-gradient-btn:hover {
+  filter: brightness(1.2);
+  transform: scale(1.05); /* Matching project button hover scale */
+}
+
+/* Ensure the Image also reacts on hover */
+.profile-aura-container:hover .profile-img-main {
+  transform: scale(1.1) rotate(2deg); /* Same subtle tilt as project images */
+}
+
+/* Ensure the text doesn't wrap awkwardly while typing */
+.display-text {
+  min-height: 1em; /* Prevents layout jump while typing */
+  display: inline-block;
+}
+
+
+/* PREMIUM NAME STYLE (Different from Button Colors) */
+.premium-name-style {
+  /* A sophisticated Silver to Champagne Gold gradient */
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 40%, #fbbf24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  display: inline-block;
+  /* Adds a soft "Luxe" glow that isn't blue */
+  filter: drop-shadow(0 0 15px rgba(251, 191, 36, 0.2)); 
+}
+
+/* Ensure the typewriter cursor matches this new theme */
+.Typewriter__cursor {
+  color: #38bdf8 !important; /* Gold cursor */
+  font-weight: 200;
+  text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+}
+
+/* Updated Hero Title for better spacing */
+.hero-title {
+  margin-top: 10px;
+  line-height: 1.2;
+}
+
+/* Adjusting the Button slightly so it doesn't compete with the name */
+.theme-gradient-btn {
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
+}
