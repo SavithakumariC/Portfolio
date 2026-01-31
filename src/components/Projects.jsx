@@ -3,26 +3,35 @@ import { motion } from 'framer-motion';
 import '../styles/Projects.css';
 
 const Projects = () => {
-  const projectList = [
-    {
-      id: 1,
-      title: "Expense Tracker 💰",
-      desc: "A full-stack MERN Expense Tracker to manage income and expenses, view total balance dynamically and maintain a transaction history.",
-      tech: ["React", "Node.js", "MongoDB", "Express"],
-      link: "https://expense-tracker-frontend-zdws.onrender.com/",
-      github: "https://github.com/SavithakumariC/Expense_Tracker",
-      img: "./images/expenseTracker.png"
-    },
-    {
-      id: 2,
-      title: "TODO List",
-      desc: "Fully responsive shopping interface with dynamic filtering, real-time cart updates, and a glass-morphism design language.",
-      tech: ["React", "Bootstrap", "Javascript", "DOM"],
-      link: "https://taskplannertodo.netlify.app/",
-      github: "https://github.com/SavithakumariC/my_todo_web/",
-      img: "./images/todoList.png"
-    }
-  ];
+const projectList = [
+  {
+    id: 1,
+    title: "Expense Tracker 💰",
+    desc: "A full-stack MERN Expense Tracker to manage income and expenses, view total balance dynamically and maintain a transaction history.",
+    tech: ["React", "Node.js", "MongoDB", "Express"],
+    link: "https://expense-tracker-frontend-zdws.onrender.com/",
+    github: "https://github.com/SavithakumariC/Expense_Tracker",
+    img: "./images/expenseTracker.png"
+  },
+  {
+    id: 2,
+    title: "TODO List",
+    desc: "Fully responsive shopping interface with dynamic filtering, real-time cart updates, and a glass-morphism design language.",
+    tech: ["React", "Bootstrap", "Javascript", "DOM"],
+    link: "https://taskplannertodo.netlify.app/",
+    github: "https://github.com/SavithakumariC/my_todo_web/",
+    img: "./images/todoList.png"
+  },
+  {
+    id: 3,
+    title: "PawHeart India 🐾",
+    desc: "A responsive NGO-style website created for PawHeart India using HTML, CSS, and JavaScript with DOM interactions to support pet adoption and animal welfare awareness.",
+    tech: ["HTML", "CSS", "JavaScript", "DOM"],
+    link: "https://pawheart.netlify.app/",
+    github: "https://github.com/SavithakumariC/Pawheart-India",
+    img: "./images/pawheart.png"
+  }
+];
 
   return (
     <section id="projects" className="projects-viewport py-5">
